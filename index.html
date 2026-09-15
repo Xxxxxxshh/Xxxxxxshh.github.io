@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shihui Xue - Academic Homepage. Research on Deepfake detection, robust digital watermarking, trustworthy AI, and multimedia forensics." />
+  <meta name="author" content="Shihui Xue" />
+  <title>Shihui Xue - Homepage</title>
+  <style>
+    :root {
+      --text: #30343b;
+      --muted: #6b7280;
+      --link: #2f67b1;
+      --line: #e6e8eb;
+      --soft: #f7f8fa;
+      --accent: #224e7a;
+      --page: #ffffff;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.97);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 13px 22px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .brand {
+      margin-right: auto;
+      font-size: 20px;
+      font-weight: 700;
+      color: #222936;
+      letter-spacing: .1px;
+    }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 24px; }
+    .navlinks a { color: #374151; font-size: 16px; font-weight: 500; }
+
+    .layout {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 44px 22px 64px;
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      align-self: start;
+    }
+    .portrait {
+      width: 205px;
+      height: 246px;
+      object-fit: cover;
+      object-position: center 28%;
+      border-radius: 6px;
+      display: block;
+      box-shadow: 0 1px 4px rgba(0,0,0,.10);
+      border: 1px solid #eceff2;
+    }
+    .name { margin: 20px 0 0; font-size: 30px; line-height: 1.15; color: #202631; }
+    .cnname { margin-top: 4px; color: var(--muted); font-size: 18px; }
+    .focus { margin-top: 15px; font-size: 15.5px; color: #4b5563; line-height: 1.55; }
+    .meta { margin-top: 18px; font-size: 15.5px; color: #4b5563; }
+    .meta div { margin: 8px 0; display: flex; gap: 8px; align-items: flex-start; }
+    .meta .icon { width: 22px; flex: 0 0 22px; }
+    .buttons { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .button {
+      display: inline-block;
+      border: 1px solid #d9dee5;
+      padding: 5px 11px;
+      border-radius: 5px;
+      color: #4b5563;
+      background: #fff;
+      font-size: 14px;
+    }
+    .button:hover { text-decoration: none; background: #f7f9fb; color: var(--link); }
+
+    main { min-width: 0; }
+    .intro { margin-top: 16px; font-size: 18px; color: #30343b; }
+    .intro p { margin: 0 0 16px; }
+    .intro strong { color: #1f2937; }
+    section { scroll-margin-top: 82px; }
+    .section { margin-top: 38px; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--line);
+      font-size: 29px;
+      line-height: 1.25;
+      color: #151b26;
+      font-weight: 700;
+    }
+    .news-list, .simple-list { margin: 0; padding-left: 24px; }
+    .news-list li, .simple-list li { margin: 8px 0; }
+
+    .pub-group { margin: 14px 0 8px; font-size: 18px; font-weight: 700; color: #374151; }
+    .publication {
+      display: grid;
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 20px;
+      padding: 18px 0 23px;
+      border-bottom: 1px solid #eef0f2;
+    }
+    .pub-img-wrap {
+      width: 245px;
+      height: 154px;
+      background: #fff;
+      border: 1px solid #e4e7eb;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .pub-img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .pub-title { font-weight: 700; font-size: 18px; line-height: 1.45; margin-bottom: 5px; color: #263241; }
+    .authors { font-size: 15.5px; line-height: 1.55; color: #48515d; margin-bottom: 5px; }
+    .venue { font-size: 15.5px; color: #606975; margin-bottom: 7px; }
+    .tags { margin: 7px 0; display: flex; gap: 7px; flex-wrap: wrap; }
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: #325a80;
+      border: 1px solid #c9d8e6;
+      background: #f5f9fc;
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+    .pub-links { margin: 5px 0 7px; font-size: 14.5px; }
+    .pub-links a { margin-right: 13px; font-weight: 600; }
+    .pub-desc { margin: 0; padding-left: 18px; color: #555e69; font-size: 14.5px; line-height: 1.55; }
+    .pub-desc li { margin: 3px 0; }
+
+    .research-card {
+      border-left: 3px solid #d7e2ed;
+      padding-left: 18px;
+      margin: 8px 0 20px;
+    }
+    .research-card h3 { margin: 0 0 4px; font-size: 19px; color: #273343; }
+    .research-meta { color: var(--muted); font-size: 14.5px; margin-bottom: 7px; }
+    .research-card ul { margin: 6px 0 0; padding-left: 20px; font-size: 15px; }
+
+    .patent-card {
+      padding: 14px 16px;
+      background: var(--soft);
+      border: 1px solid #e6e9ed;
+      border-radius: 5px;
+    }
+    .patent-card strong { color: #263241; }
+    .patent-meta { margin-top: 7px; font-size: 14.5px; color: #616b76; }
+
+    .footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px 30px;
+      color: #8a929c;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .nav { align-items: flex-start; gap: 12px; }
+      .navlinks { gap: 12px 16px; }
+      .layout { grid-template-columns: 1fr; gap: 20px; padding-top: 28px; }
+      .sidebar { position: static; display: grid; grid-template-columns: 150px 1fr; gap: 20px; }
+      .portrait { width: 150px; height: 185px; }
+      .sidebar-info { min-width: 0; }
+      .name { margin-top: 2px; font-size: 27px; }
+      .focus { margin-top: 9px; }
+      .meta { margin-top: 10px; }
+      .buttons { margin-top: 11px; }
+      .intro { margin-top: 10px; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .nav { padding: 11px 15px; }
+      .brand { width: 100%; margin-right: 0; }
+      .nav { flex-wrap: wrap; }
+      .navlinks { gap: 9px 14px; }
+      .navlinks a { font-size: 14px; }
+      .layout { padding: 24px 15px 45px; }
+      .sidebar { display: block; }
+      .portrait { width: 170px; height: 210px; }
+      .sidebar-info { margin-top: 15px; }
+      .publication { grid-template-columns: 1fr; gap: 12px; }
+      .pub-img-wrap { width: 100%; height: auto; min-height: 150px; max-height: 220px; }
+      .pub-img { width: 100%; height: auto; }
+      .section-title { font-size: 25px; }
+      .intro { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#home">Shihui Xue</a>
+      <div class="navlinks">
+        <a href="#home">Homepage</a>
+        <a href="#about">About Me</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#research">Research</a>
+        <a href="#patent">Patent</a>
+        <a href="#awards">Honors &amp; Awards</a>
+        <a href="#education">Educations</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="layout" id="home">
+    <aside class="sidebar">
+      <img class="portrait" src="profile.jpg" alt="Shihui Xue" />
+      <div class="sidebar-info">
+        <h1 class="name">Shihui Xue</h1>
+        <div class="cnname">薛世辉</div>
+        <div class="focus">Focusing on Deepfake Detection, Robust Digital Watermarking, and Multimedia Forensics.</div>
+        <div class="meta">
+          <div><span class="icon">📍</span><span>Jinan, China</span></div>
+          <div><span class="icon">🏫</span><span>Qilu University of Technology<br />(Shandong Academy of Sciences)</span></div>
+          <div><span class="icon">✉️</span><a href="mailto:xsh062800@163.com">xsh062800@163.com</a></div>
+        </div>
+        <div class="buttons">
+          <a class="button" href="Shihui_Xue_CV.pdf" target="_blank" rel="noopener">CV</a>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="intro" id="about">
+        <p>
+          I am currently an M.S. student in <strong>Computer Technology</strong> at the
+          <strong>Faculty of Computer Science and Technology, Qilu University of Technology (Shandong Academy of Sciences)</strong>,
+          under the supervision of <strong>Prof. Yongjin Xian</strong>. I am a member of the
+          <strong>Multimedia Security Computing Group</strong> led by <strong>Prof. Bin Ma</strong>, where my research focuses on
+          <strong>trustworthy artificial intelligence</strong> and <strong>multimedia forensics</strong>, particularly
+          <strong>Deepfake detection</strong> and <strong>robust digital image watermarking</strong>.
+        </p>
+        <p>
+          Previously, I received my Bachelor of Engineering degree in <strong>Computer Science and Technology</strong>
+          from <strong>Qingdao Agricultural University</strong> in 2023.
+        </p>
+      </section>
+
+      <section class="section" id="news">
+        <h2 class="section-title">🔥 News</h2>
+        <ul class="news-list">
+          <li><strong>2026:</strong> One paper on proactive Deepfake defense and dual-rule watermarking was accepted for publication in <strong>IEEE TCSVT</strong>.</li>
+          <li><strong>2026:</strong> One paper on CLIP-based Deepfake detection, <strong>SAIL</strong>, was published at <strong>ICASSP 2026</strong>.</li>
+          <li><strong>2026:</strong> My first-author paper on robust facial feature watermarking was accepted by <strong>ICIC 2026</strong>.</li>
+          <li><strong>2025.12:</strong> A Chinese invention patent on quantum-controlled robust feature watermarking for Deepfake detection was granted.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="publications">
+        <h2 class="section-title">📝 Publications</h2>
+
+        <div class="pub-group">CCF-B</div>
+        <article class="publication">
+          <div class="pub-img-wrap"><img class="pub-img" src="paper_tcsvt.png" alt="Framework of dual-rule watermarking for Deepfake proactive defense" /></div>
+          <div>
+            <div class="pub-title">Dual-Rule Watermarking with Facial Features of Topological and Semantic for Deepfake Proactive Defense</div>
+            <div class="authors">Yongjin Xian, <strong>Shihui Xue</strong>, Bin Ma, Youyang Qu</div>
+            <div class="venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), 2026.</div>
+            <div class="tags"><span class="tag">CCF-B</span><span class="tag">IEEE TCSVT</span><span class="tag">Deepfake Proactive Defense</span></div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/TCSVT.2026.3722506" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <ul class="pub-desc">
+              <li>Constructs a meaningful dual-rule watermark from facial topological constraints and semantic attributes.</li>
+              <li>Integrates learnable quantum-inspired encryption with frequency-aware and multi-attention watermark embedding.</li>
+              <li>Uses feature consistency to support provenance verification and Deepfake detection.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="publication">
+          <div class="pub-img-wrap"><img class="pub-img" src="paper_icassp.png" alt="SAIL framework for Deepfake detection with CLIP" /></div>
+          <div>
+            <div class="pub-title">SAIL: Synergistic Anomaly-Informed Learning for Deepfake Detection with CLIP</div>
+            <div class="authors">Wenjing Ruan, Yongjin Xian, <strong>Shihui Xue</strong>, Jing Zhao</div>
+            <div class="venue">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2026.</div>
+            <div class="tags"><span class="tag">CCF-B</span><span class="tag">ICASSP 2026</span><span class="tag">Deepfake Detection</span></div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/ICASSP55912.2026.11462059" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <ul class="pub-desc">
+              <li>Introduces a synergistic anomaly-informed learning strategy to enhance CLIP with local artifact sensitivity.</li>
+              <li>Combines a deep artifact-aware head, soft weighting, and context-aware feature calibration.</li>
+              <li>Improves cross-dataset generalization for face forgery detection.</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="pub-group">CCF-C</div>
+        <article class="publication">
+          <div class="pub-img-wrap"><img class="pub-img" src="paper_icic.png" alt="Robust facial feature watermarking framework" /></div>
+          <div>
+            <div class="pub-title">A Robust Facial Feature Watermarking Method Based on Learnable Quantum Controlled Encryption for Deepfake Detection</div>
+            <div class="authors"><strong>Shihui Xue</strong>, Yongjin Xian, Bin Ma</div>
+            <div class="venue">International Conference on Intelligent Computing (ICIC 2026), LNCS 16652.</div>
+            <div class="tags"><span class="tag">CCF-C</span><span class="tag">First Author</span><span class="tag">Robust Watermarking</span></div>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1007/978-981-92-3423-3_11" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <ul class="pub-desc">
+              <li>Embeds facial identity features as semantically meaningful watermarks for authentication and traceability.</li>
+              <li>Designs a learnable quantum-controlled encryption module for end-to-end watermark protection.</li>
+              <li>Uses frequency-domain enhancement and multi-attention mechanisms to improve robustness and recovery accuracy.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" id="research">
+        <h2 class="section-title">🔬 Research Experience</h2>
+        <div class="research-card">
+          <h3>Key Technologies for Security Evaluation of Multimodal Large Models and Applications</h3>
+          <div class="research-meta">Core Member · Sep. 2025 – Present</div>
+          <ul>
+            <li>Developing image-generation content detection and robustness evaluation pipelines with PyTorch.</li>
+            <li>Exploring fusion of topological features and deep semantic representations for generated-content modeling and cross-modal alignment.</li>
+            <li>Building robustness evaluation workflows covering image distortions and adversarial attacks, and studying watermark-based content protection and provenance verification.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="patent">
+        <h2 class="section-title">📜 Patent</h2>
+        <div class="patent-card">
+          <strong>A Deepfake Detection Method Based on Quantum-Controlled Robust Feature Watermarking</strong><br />
+          一种基于量子控制鲁棒特征水印的深度伪造检测方法
+          <div class="patent-meta">
+            Chinese Invention Patent · Patent No. ZL 2025 1 1445724.1 · Grant No. CN 120931466 B · Granted Dec. 9, 2025 · <strong>Second Inventor</strong>
+            &nbsp;·&nbsp; <a href="Patent_Certificate.pdf" target="_blank" rel="noopener">Certificate</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="awards">
+        <h2 class="section-title">🏆 Honors and Awards</h2>
+        <ul class="simple-list">
+          <li><strong>2025</strong>, Second Prize (National Final), 22nd National College Student Information Security and Adversarial Technology Competition.</li>
+          <li><strong>2025</strong>, Second Prize (Provincial Round), 22nd National College Student Information Security and Adversarial Technology Competition.</li>
+          <li>Second Prize (University Round), 19th “Challenge Cup” National College Student Extracurricular Academic Science and Technology Works Competition.</li>
+          <li>Third Prize, Development Group, 1st English Talent Competition, Qilu University of Technology (Shandong Academy of Sciences).</li>
+        </ul>
+      </section>
+
+      <section class="section" id="education">
+        <h2 class="section-title">📖 Educations</h2>
+        <ul class="simple-list">
+          <li><strong>2024.09 – 2027.06 (expected)</strong>, M.Eng. in Computer Technology, Qilu University of Technology (Shandong Academy of Sciences), Jinan, China.</li>
+          <li><strong>2019.09 – 2023.06</strong>, B.Eng. in Computer Science and Technology, Qingdao Agricultural University, Qingdao, China.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">© 2026 Shihui Xue · Last updated: September 2026</footer>
+</body>
+</html>
